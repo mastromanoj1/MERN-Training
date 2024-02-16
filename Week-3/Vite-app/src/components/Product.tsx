@@ -11,6 +11,7 @@ export const Product = (props : any) => {
         <button  onClick={() => setShow(!Show)} > Show More</button>
         {Show ? 
         <>
+          <img src={props.product.image} width='300px' />
           <p> Price : {props.product.price}</p>
           <p> Rating : {props.product.rating.rate} ({props.product.rating.count})</p>
           <p> category : {props.product.category}</p>

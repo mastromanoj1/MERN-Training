@@ -1,6 +1,7 @@
 
 import './App.css'
 import Products from './components/dynamic-route/Products';
+import Productshow from './components/dynamic-route/Productshow';
 // import Products from './components/Products';
 import Aboutpage from './components/react-route/Aboutpage';
 import Contactpage from './components/react-route/Contactpage';
@@ -31,7 +32,7 @@ function App() {
          <Router>
           <Routes>
             <Route path='/' element= {<Products/>}/>
-            <Route path="/product/:id" element={"Hi"}/>
+            <Route path="/product/:id" element={<Productshow/>}/>
           </Routes>
 
          </Router>
