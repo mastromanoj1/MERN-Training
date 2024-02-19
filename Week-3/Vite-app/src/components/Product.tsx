@@ -2,20 +2,19 @@ import React, { useState } from 'react'
 
 
 export const Product = (props : any) => {
-  console.log(props.product,"props.product")
+  console.log(props.value,"props.value")
   const [Show, setShow] = useState(false)
   return (
     <>
-        <img src={props.product.image} width={'300px'}/>
-        <h3> {props.product.title} </h3>
+        <img src={props.value.image} width={'300px'}/>
+        <h3> {props.value.title} </h3>
         <button  onClick={() => setShow(!Show)} > Show More</button>
         {Show ? 
         <>
-          <img src={props.product.image} width='300px' />
-          <p> Price : {props.product.price}</p>
-          <p> Rating : {props.product.rating.rate} ({props.product.rating.count})</p>
-          <p> category : {props.product.category}</p>
-          <p> Description : {props.product.description}</p>
+          <p> Price : {props.value.price}</p>
+          <p> Rating : {props.value.rating.rate} ({props.value.rating.count})</p>
+          <p> category : {props.value.category}</p>
+          <p> Description : {props.value.description}</p>
         </>
         : "" }
         
