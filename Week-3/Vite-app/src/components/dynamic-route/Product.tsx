@@ -9,8 +9,6 @@ const Product = (props : any) => {
         <img src={props.product.image} width='300px' />
         <div><Link to={'/product/' + props.product.id} > Show More </Link> </div>
         <hr/>
-        
-
     </>
   )
 }

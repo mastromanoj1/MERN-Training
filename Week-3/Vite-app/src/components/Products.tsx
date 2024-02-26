@@ -1,9 +1,9 @@
 import products from "../data"
 import { Product } from "./Product"
 
-const PersonalDetails = () => {
+const Products = () => {
 
-  console.log(products[0],"Products")
+ 
   return (
     <div>
       <h2>Product Details </h2>
@@ -19,4 +19,4 @@ const PersonalDetails = () => {
   )
 }
 
-export default PersonalDetails
+export default Products

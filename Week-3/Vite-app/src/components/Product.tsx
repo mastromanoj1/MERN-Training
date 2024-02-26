@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 
 export const Product = (props : any) => {
-  console.log(props.value,"props.value")
+  // console.log(props.value,"props.value")
   const [Show, setShow] = useState(false)
   return (
     <>
@@ -17,6 +17,8 @@ export const Product = (props : any) => {
           <p> Description : {props.value.description}</p>
         </>
         : "" }
+
+        
         
 
         <hr/>
