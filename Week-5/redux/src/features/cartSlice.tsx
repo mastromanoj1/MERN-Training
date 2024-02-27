@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 const initialState = {
-    products : [],
     cart : []
 }
 
@@ -10,13 +9,16 @@ const counterSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    initCart(state,action) { 
-        return {...state, products : action.payload}
-       },
-    addtoCart(state,action) {   },
-    deleteinCart(state, action) {  },
+    addtoCart(state : any ,action) {  
+      return {...state,cart : [...state.cart, action.payload]};
+     },
+    removefromCart(state , action ) {
+      return{...state,cart : state.cart.filter(
+        (product :any ) => product.id !== action.payload
+      )}
   },
+}
 })
 
-export const { initCart, addtoCart, deleteinCart } = counterSlice.actions
+export const { addtoCart, removefromCart } = counterSlice.actions
 export default counterSlice.reducer

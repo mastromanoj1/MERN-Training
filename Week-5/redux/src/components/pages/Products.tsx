@@ -1,22 +1,28 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { initCart } from '../../features/cartSlice'
+import Product from './Product'
+import { getProducts } from '../../features/productSlice'
+
 
 
 const Products = () => {
     const dispatch = useDispatch()
-    const products = useSelector((state :any ) => state.cart.products) // to
+    const products = useSelector((state :any ) => state.products.products) // to
+    const [toggle, settoggle] = useState(false)
     console.log(products,"Products")
     useEffect(() => {
-      axios.get('https://fakestoreapi.com/products?limit=5')
-      .then((res) => {
-        return dispatch(initCart(res.data))
-      })
+      dispatch(getProducts())
     }, [])
     
   return (
-    <div>Products</div>
+    <div>
+        {products.map((product : any) => {
+          return (
+           <Product data={product}/>
+          )
+        })}
+    </div>
   )
 }
 
