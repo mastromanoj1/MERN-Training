@@ -1,4 +1,7 @@
 const http = require('http')
+const fs = require('fs');
+
+const indexPage = fs.readFileSync('../../Week-1/HTML&CSS/index.html', 'utf8');
 
 const app = http.createServer((req,res) => {
     console.log(req.url);
@@ -6,7 +9,7 @@ const app = http.createServer((req,res) => {
 
     switch (req.url) {
         case '/':
-            res.write('<h1> Home page</h1>')
+            res.write(indexPage)
             break;
         case '/about' :
             res.write('<h1> About page </h1>')
