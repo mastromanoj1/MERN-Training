@@ -1,6 +1,7 @@
 import data from "../data.js"
 import { v4 as uuidv4 } from 'uuid';
 
+import ProductDB from '../models/sampleData.js'
 
 export const getAllUser = (req,res)=>{
     res.json(data)
@@ -16,7 +17,15 @@ export const getOneUser = (req,res)=>{
     }
 }
 
-export const postCreateUser = (req,res)=>{
+export const postCreateUser = async (req,res)=>{
     console.log(req.body)
-    res.json({...req.body,id : uuidv4()})
+    await ProductDB.create(req.body)
+    .then((response) => {
+        res.json(response)
+    })
+    .catch((err) => {
+        res.status(404).send(err.message)
+    })
+    
+    // res.json({...req.body,id : uuidv4()})
 }

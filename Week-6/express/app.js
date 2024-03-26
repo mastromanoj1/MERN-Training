@@ -1,5 +1,9 @@
 import  express  from 'express'
 import Userroutes from './routes/Userroutes.js'
+import connectDB from './config/db.js';
+
+//connect DB
+connectDB();
 const app = express();
 app.use(express.json())
 
